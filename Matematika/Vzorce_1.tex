@@ -1,0 +1,169 @@
+\documentclass{article}
+\title{Vzorečky pro SWI 1. ročník na UTB Zlín}
+\author{Robin Tetour}
+\date{květen 2023}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{multicol}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=3mm,
+ right=3mm,
+ top=10mm,
+ bottom=10mm
+ }
+
+\providecommand{\tabularnewline}{\\}
+\providecommand{\arccot}{arccot}
+\pagenumbering{gobble}
+
+\begin{document}
+\begin{multicols}{4}
+\section{Integrály}
+\begin{itemize}
+    \item $\int x^{n}dx=\frac{x^{n+1}}{n+1}+C$
+    \item $\int e^{x}dx=e^{x}+C$
+    \item $\int a^{x}dx=\frac{a^{x}}{\ln a}+C$
+    \item $\int\frac{1}{x}dx=\ln\left|x\right|+C$
+    \item $\int\sin xdx=-\cos x+C$
+    \item $\int\cos xdx=\sin x+C$
+    \item $\int\frac{1}{\cos^{2}x}dx=\tan x+C$
+    \item $\int\frac{1}{\sin^{2}x}dx=-\cot x+C$
+    \item $\int\frac{1}{\sqrt{1-x^{2}}}dx=\arcsin x+C$
+    \item $\int-\frac{1}{\sqrt{1-x^{2}}}dx=\arccos x+C$
+    \item $\int\frac{1}{1+x^{2}}dx=\arctan x+C$
+    \item $\int-\frac{1}{1+x^{2}}dx=\arccot x+C$
+\end{itemize}
+\subsection{Per partes}
+$\int u^{\prime}\left(x\right)\times v\left(x\right)dx=u\left(x\right)\times v\left(x\right)-\int u\left(x\right)\times v^{\prime}\left(x\right)dx$
+\subsection{Substituční}
+$t\rightarrow dt$
+\subsection{Rozklad na parciální zlomky}
+$\ldots=\frac{A}{x}+\frac{B}{\ldots}+\frac{C}{\ldots}$
+\section{Derivace}
+\begin{itemize}
+    \item $\left(C\right)^{\prime}=0$
+    \item $\left(x^{n}\right)^{\prime}=nx^{n-1}$
+    \item $\left(e^{x}\right)^{\prime}=e^{x}$
+    \item $\left(a^{x}\right)^{\prime}=a^{x}\ln a$
+    \item $\left(\log_{a}x\right)^{\prime}=\frac{1}{x\ln a}$
+    \item $\left(\ln x\right)^{\prime}=\frac{1}{x}$
+    \item $\left(\sin x\right)^{\prime}=\cos x$
+    \item $\left(\cos x\right)^{\prime}=-\sin x$
+    \item $\left(\tan x\right)^{\prime}=\frac{1}{\cos^{2}x}$
+    \item $\left(\cot x\right)^{\prime}=-\frac{1}{\sin^{2}x}$
+    \item $\left(\arcsin x\right)^{\prime}=\frac{1}{\sqrt{1-x^{2}}}$
+    \item $\left(\arccos x\right)^{\prime}=-\frac{1}{\sqrt{1-x^{2}}}$
+    \item $\left(\arctan x\right)^{\prime}=\frac{1}{1+x^{2}}$
+    \item $\left(\arccot x\right)^{\prime}=-\frac{1}{1+x^{2}}$
+\end{itemize}
+\subsection{Vzorce}
+\begin{itemize}
+    \item $\left(\frac{f\left(x\right)}{g\left(x\right)}\right)^{\prime}=\frac{f^{\prime}\left(x\right)\times g\left(x\right)-f\left(x\right)\times g^{\prime}\left(x\right)}{g^{2}\left(x\right)}$
+    \item $\left(f\left(x\right)\times g\left(x\right)\right)^{\prime}=f^{\prime}\left(x\right)\times g\left(x\right)+f\left(x\right)\times g^{\prime}\left(x\right)$
+    \item $\left(f\left(g\left(x\right)\right)\right)^{\prime}=f^{\prime}\left(g\left(x\right)\right)\times g^{\prime}\left(x\right)$
+    \item $f\left(x\right)^{g\left(x\right)}=e^{g\left(x\right)\ln f\left(x\right)}$
+\end{itemize}
+\subsection{Diference}
+$f\left(x\right)\thickapprox f\left(x_{0}\right)+f^{\prime}\left(x_{0}\right)\times\left(x-x_{0}\right)$
+\subsection{L'Hospitalovo Pravidlo}
+$\left\Vert \frac{0}{0}\right\Vert \wedge\left\Vert \frac{\infty}{\infty}\right\Vert \rightarrow\frac{f\left(x\right)}{g\left(x\right)}\rightarrow\frac{f^{\prime}\left(x\right)}{g^{\prime}\left(x\right)}$
+\subsection{Taylorův Polynom}
+$Tn\left(x\right)=f\left(x_{0}\right)+\frac{f^{\prime}\left(x_{0}\right)}{1!}\left(x-x_{0}\right)^{1}+\ldots\frac{f^{n}\left(x_{0}\right)}{n!}\left(x-x_{0}\right)^{n}$
+\subsection{Dosazování reprezentantů}
+\begin{enumerate}
+    \item Lokální extrémy funkce a flexe
+    \item Monotónost
+\end{enumerate}
+\section{Vzorce}
+\subsection{Diskriminant}
+\begin{enumerate}
+    \item $D=b^{2}-4ac$
+    \item $x_{1,2}=\frac{-b\pm\sqrt{D}}{2a}$
+\end{enumerate}
+\subsection{Logaritmy}
+\begin{itemize}
+    \item $\log_{a}\left(x\right)+\log_{a}\left(y\right)=\log_{a}\left(x\times y\right)$
+    \item $\log_{a}\left(x\right)-\log_{a}\left(y\right)=\log_{a}\left(\frac{x}{y}\right)$
+    \item $\log_{a}\left(x^{n}\right)=n\times\log_{a}\left(x\right)$
+    \item $\log_{a}\left(x\right)=y\Leftrightarrow a^{y}$
+\end{itemize}
+\subsection{Imaginární čísla}
+\begin{itemize}
+    \item $i^{2}=-1$
+    \item $r=a+bi$
+    \item $\overline{r}=a-bi$
+    \item $\left|r\right|=\sqrt{a^{2}+b^{2}}$
+\end{itemize}
+\subsection{Mocniny}
+\begin{itemize}
+    \item $a^{x}\times a^{y}=a^{x+y}$
+    \item $\frac{a^{x}}{a^{y}}=a^{x-y}$
+    \item $\left(a^{x}\right)^{y}=a^{x\times y}$
+\end{itemize}
+\section{Posloupnosti}
+\subsection{Aritmetická}
+\begin{enumerate}
+    \item $a_{n+1}=a_{n}+d$
+    \item $s_{n}=\frac{n}{2}\times\left(a_{1}+a_{n}\right)$
+    \item $a_{n}=a_{1}+\left(n-1\right)d$
+    \item $a_{r}=a_{s}+\left(r-s\right)d$
+\end{enumerate}
+\subsection{Geometrická}
+\begin{enumerate}
+    \item $a_{n+1}=a_{n}\times q$
+    \item $a_{n}=a_{1}\times q^{n-1}$
+    \item $s_{n}=a_{1}\frac{q^{n}-1}{q-1}$
+    \item $a_{r}=a_{s}\times q^{r-s}$
+\end{enumerate}
+\section{Matice}
+$A^{-1}=\frac{adj\left(A\right)}{\left|A\right|}$
+\begin{itemize}
+    \item Křížové pravidlo
+    \item Sarusovo pravidlo
+    \item Laplaceův rozvoj
+\end{itemize}
+\section{Vektorové počty}
+\begin{itemize}
+    \item $s=AB=B-A=\left(x,y\right)\Longrightarrow n=\left(x,-y\right)$
+    \item $S=\left[\frac{a_{1}+b_{1}}{2},\frac{a_{2}+b_{2}}{2}\right]$
+    \item $\left|AB\right|=\sqrt{\left(b_{1}-a_{1}\right)^{2}+\left(b_{2}-a_{2}\right)^{2}}$
+\end{itemize}
+\section{Grafy funkcí}
+\begin{itemize}
+    \item $\left(x-m\right)^{2}+\left(y-n\right)^{2}=r^{2}\Vert\cancel{0}$
+    \item $\frac{\left(x-m\right)^{2}}{a^{2}}+\frac{\left(y-n\right)^{2}}{b^{2}}=1\Vert0$
+    \item $\frac{\left(y-n\right)^{2}}{a^{2}}+\frac{\left(x-m\right)^{2}}{b^{2}}=1\Vert)($
+    \item $\left(y-n\right)^{2}=2p\left(x-m\right)\Vert+($
+\end{itemize}
+\section{Goniometrická jednička}
+\begin{itemize}
+    \item $\cos^{2}x+\sin^{2}x=1$
+    \item tan$\left(x\right)=\frac{\sin\left(x\right)}{\cos\left(x\right)}$
+    \item $\cot\left(x\right)=\frac{\cos\left(x\right)}{\sin\left(x\right)}=\frac{1}{\tan\left(x\right)}$
+\end{itemize}
+\end{multicols}
+\begin{table}[]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline 
+    integrál & $u^{\prime}\left(x\right)$ & v$\left(x\right)$\tabularnewline
+    \hline 
+    \hline 
+    $\int P\left(x\right)\times\sin xdx$ & $\sin x$ & $P\left(x\right)$\tabularnewline
+    \hline 
+    $\int P\left(x\right)\times\cos xdx$ & $\cos x$ & $P\left(x\right)$\tabularnewline
+    \hline 
+    $\int P\left(x\right)\times e^{x}dx$ & $e^{x}$ & $P\left(x\right)$\tabularnewline
+    \hline 
+    $\int P\left(x\right)\times\ln xdx$ & $P\left(x\right)$ & $\ln^{n}x$\tabularnewline
+    \hline 
+    $\int P\left(x\right)\times\arctan xdx$ & $P\left(x\right)$ & $\arctan x$\tabularnewline
+    \hline 
+    \end{tabular}
+    \caption{Přednosti pro per partes}
+    \label{tab:perpartes}
+\end{table}
+\end{document}
