@@ -9,6 +9,6 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: Matematika\*.tex
+          root_file: /Matematika/*.tex
       - name: Release
         uses: softprops/action-gh-release@v1
