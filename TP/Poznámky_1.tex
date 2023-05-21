@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{amsmath}
+\title{Teorie Přenosu Informací}
+\author{Robin Tetour}
+\date{Květen 2023}
+
+\begin{document}
+\maketitle
+
+\section{Teorie přenosu informací}
+\subsection{Kvantita informace}
+$I=n\times\log s$
+kde:
+\begin{itemize}
+    \item $s$ počet symbolů se stejnou pravděpodobností výskytu
+    \item $n$ celkový počet symbolů ve zprávě
+\end{itemize}
+
+\textbf{Typy událostí}
+\begin{enumerate}
+    \item Jistá událost
+    \item Nemožná událost
+    \item Opačná událost $\overline{A}$
+    \item Událost A je součástí B $A\subset B$
+    \item Události jsou rovnocenné $A=B$
+    \item Průnik událostí $A\cdot B$
+    \item Sjednocení $A+B$
+    \item Rozdíl $A-B$ nebo $A\setminus B$
+    \item Události jsou neslučitelné $A\cap B$
+    \item Elementární událost
+    \item Úplná soustava neslučitelných událostí $I=A_{1}+A_{2}+\ldots A_{n}$
+\end{enumerate}
+
+\subsection{Demorganovy zákony}
+\begin{itemize}
+    \item $\overline{\left(A+B\right)}=\overline{A}\cdot\overline{B}$
+    \item $\overline{\left(A\cdot B\right)}=\overline{A}+\overline{B}$
+\end{itemize}
+
+\subsection{Geometrická pravděpodobnost}
+$P\left(A\right)=\frac{\left|\Delta\right|}{\left|\Omega\right|}$
+\paragraph{Uzavřená oblast $\Omega$ a v ní další $\Delta$, můžeme určit pravděpodobnost jevu $A$ (bod leží v obou oblastech)}
+
+\subsection{Statistická definice pravděpodobnosti}
+\begin{enumerate}
+    \item $P\left(A\right)=\lim_{n\to\infty} \frac{f}{n}$
+    \item $P\left(A\right)\approx\frac{f}{n}$ pro velká $n$
+\end{enumerate}
+
+\begin{itemize}
+    \item $n$ počet pokusů
+    \item $f$ počet výskytů
+\end{itemize}
+
+\subsection{Kombinatorika}
+\begin{itemize}
+    \item $V\left(k,n\right)=n\left(n-1\right)\ldots\left(n-k+1\right)$
+    \item $P\left(n\right) =V\left(n,n\right) =n\left(n-1\right)\ldots1$
+    \item $C(k,n)=1k!V(k,n)=1k!n(n-1)\ldots(n-k+1)=n!k!(n-k)!$
+\end{itemize}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c|c|c|c}
+         & Variace & Permutace & Kombinace \\
+        Bez opakování & $\frac{n!}{(n-k)!}$ & $n!$ &
+        $\begin{pmatrix}
+            n \\
+            k \\
+        \end{pmatrix}$\\
+        S opakováním & $n^k$ & $\frac{(k_1+\ldots+k_n)!}{k_1!\times\ldots\times k_n!}$ & $\begin{pmatrix}
+            n-k+1 \\
+            k \\
+        \end{pmatrix}$ \\
+    \end{tabular}
+    \caption{Vzorce kombinatoriky}
+    \label{tab:komb}
+\end{table}
+\subsection{Entropie}
+\begin{itemize}
+    \item $H\left(x\right)=-P\left(x\right)\log_2P\left(x\right)$
+\end{itemize}
+
+\textit{Redundance jazyka}
+
+$R=\frac{H}{H_{max}}$
+
+\textbf{Informační hodnota}
+\begin{itemize}
+    \item $I\left(x\right)=\log_2\frac{1}{P(x)}=-\log_2P\left(x\right)$
+    \item $I=\sum_{k=1}^{n}p_k\times \log_2 \frac{1}{p_k}$
+    \item $I\left(E\right)=\log_2N$ = Hartleyho formule
+    \begin{itemize}
+        \item Hf definuje množství informace, které je nutné k charakterizaci jednoho prvku množiny E o N prvcích
+    \end{itemize}
+\end{itemize}
+kde:
+\begin{itemize}
+    \item $N$ Počet možností/prvků
+    \item $x$ Zpráva
+\end{itemize}
+\textbf{Sjednocení}
+\begin{itemize}
+    \item Informace $I(x)=I(A)+I(B)$
+    \item Pravděpodobností $P(x)=P(A)\times P(B)$
+\end{itemize}
+\subsection{Kódování}
+Rovnoměrný kód $\times$ Nerovnoměrný kód
+\begin{enumerate}
+    \item Shannon-fannovo
+    \item Huffmanovo
+\end{enumerate}
+
+\begin{itemize}
+    \item $\eta=\frac{H}{\overline{d}}\times 100\%$ Efektivita kódu
+    \item $\overline{d}=\sum_{i=1}^{N}d_i\times p_i$ Průměrná délka kódového slova
+\end{itemize}
+
+\subsection{Bezpečnostní kódy}
+\textbf{Paritní zabezečení}
+Přidání jednoho bitu (0/1) na konec zprávy podle:
+\begin{itemize}
+    \item Sudá = sudý počet \textbf{jedniček}
+    \item Lichá = lichý počet \textbf{jedniček}
+\end{itemize}
+\textbf{Hammingova Kostka (vzdálenost), Maticové zabezpečení}
+
+\section{Test:}
+\begin{itemize}
+    \item Stromy + McMillan + Efektivita
+    \item Převody
+    \item Pravděpodobnost
+    \item Entropie, Kombinatorika
+    \item Zabezpečovací kódy
+\end{itemize}
+
+\subsection{Příklad}
+\begin{enumerate}
+    \item A1 - 0,2
+    \item A2 - 0,26
+    \item A3 - 0,12
+    \item A4 - 0,16
+    \item A5 - 0,12
+    \item A6 - 0,06
+    \item A7 - 0,05
+    \item A8 - ?
+\end{enumerate}
+
+\subsection{Příklad}
+Navrhněte kód pro zdrojovou abecedu, která obsahuje 7 symbolů a pravděpodobnosti výskytu jsou dány takto:
+\begin{enumerate}
+    \item 0,4
+    \item 0,2
+    \item 0,05
+    \item 0,1
+    \item 0,15
+    \item 0,04
+    \item ?
+\end{enumerate}
+\end{document}
