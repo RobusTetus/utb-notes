@@ -1,17 +1,20 @@
 \documentclass{article}
 \usepackage[a4paper]{geometry}
 \usepackage{amsmath}
+\usepackage{hyperref}
 \title{Teorie Přenosu Informací}
 \author{Robin Tetour}
 \date{Květen 2023}
-
+\geometry{
+left=15mm,
+top=10mm
+}
 \begin{document}
 \maketitle
 
 \section{Teorie přenosu informací}
 \subsection{Kvantita informace}
-$I=n\times\log s$
-kde:
+$I=n\times\log s$ kde:
 \begin{itemize}
     \item $s$ počet symbolů se stejnou pravděpodobností výskytu
     \item $n$ celkový počet symbolů ve zprávě
@@ -62,7 +65,7 @@ $P\left(A\right)=\frac{\left|\Delta\right|}{\left|\Omega\right|}$
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{c|c|c|c}
+    \begin{tabular}{c c c c}
          & Variace & Permutace & Kombinace \\
         Bez opakování & $\frac{n!}{(n-k)!}$ & $n!$ &
         $\begin{pmatrix}
@@ -78,35 +81,34 @@ $P\left(A\right)=\frac{\left|\Delta\right|}{\left|\Omega\right|}$
     \label{tab:komb}
 \end{table}
 \subsection{Entropie}
-\begin{itemize}
-    \item $H\left(x\right)=-P\left(x\right)\log_2P\left(x\right)$
-\end{itemize}
-
-\textit{Redundance jazyka}
-
-$R=\frac{H}{H_{max}}$
-
+Je to míra neurčitosti. Shannon si položil otázku, kolikrát se musíme zeptat, aby jsme docílili jasné odpovědi. \\
+Obecný vzorec entropie $H\left(x\right)=-P\left(x\right)\log_2P\left(x\right)$\\
+\textit{Redundance jazyka} $R=\frac{H}{H_{max}}$
+    \subsubsection{Sestavení stromu entropie}
+    Jdeme od největší pravděpodobnosti. Dejme tomu že máme pravděpodobnosti 50\%, 25\%, 12.5\%, 12.5\%. Zeptáme se nejprve na 50\% jelikož je největší pravděpodobnost, že je to tato hodnota.
+    Dále jdeme na 25\% a zbytek. To nám vytvoří strom entropie. Poté můžeme vyjádřit celkovou entropii použitím vzorce níže. tj. přesněji $H=-\sum_{i=1}^{n}p_i\times\log_2\left(p_i\right)$ Je to tedy suma pravděpodobnosti všech prvků vynásobených jejich počtem kroků od první úrovně stromu, obecně znázorněné logaritmem o základu 2 jelikož pracujeme v binární soustavě. \href{https://cs.khanacademy.org/computing/computer-science/informationtheory/moderninfotheory/v/information-entropy}{\textbf{ukázka a vysvětlení}}\\
 \textbf{Informační hodnota}
-\begin{itemize}
-    \item $I\left(x\right)=\log_2\frac{1}{P(x)}=-\log_2P\left(x\right)$
-    \item $I=\sum_{k=1}^{n}p_k\times \log_2 \frac{1}{p_k}$
-    \item $I\left(E\right)=\log_2N$ = Hartleyho formule
     \begin{itemize}
-        \item Hf definuje množství informace, které je nutné k charakterizaci jednoho prvku množiny E o N prvcích
+        \item $I\left(x\right)=\log_2\frac{1}{P(x)}=-\log_2P\left(x\right)$
+        \item $I=\sum_{k=1}^{n}p_k\times \log_2 \frac{1}{p_k}$
+        \item $I\left(E\right)=\log_2N$ = Hartleyho formule
+        \begin{itemize}
+            \item Hf definuje množství informace, které je nutné k charakterizaci jednoho prvku množiny E o N prvcích
+        \end{itemize}
     \end{itemize}
-\end{itemize}
-kde:
-\begin{itemize}
-    \item $N$ Počet možností/prvků
-    \item $x$ Zpráva
-\end{itemize}
+    kde:
+    \begin{itemize}
+        \item $N$ Počet možností/prvků
+        \item $x$ Zpráva
+    \end{itemize}
 \textbf{Sjednocení}
 \begin{itemize}
     \item Informace $I(x)=I(A)+I(B)$
     \item Pravděpodobností $P(x)=P(A)\times P(B)$
 \end{itemize}
 \subsection{Kódování}
-Rovnoměrný kód $\times$ Nerovnoměrný kód
+Rovnoměrný kód $\times$ Nerovnoměrný kód \\
+Stejný počet bitů $\times$ Variabilní počet bitů
 \begin{enumerate}
     \item Shannon-fannovo
     \item Huffmanovo
@@ -118,14 +120,45 @@ Rovnoměrný kód $\times$ Nerovnoměrný kód
 \end{itemize}
 
 \subsection{Bezpečnostní kódy}
-\textbf{Paritní zabezečení}
-Přidání jednoho bitu (0/1) na konec zprávy podle:
 \begin{itemize}
-    \item Sudá = sudý počet \textbf{jedniček}
-    \item Lichá = lichý počet \textbf{jedniček}
+    \item \textbf{Paritní zabezečení}
+        Přidání jednoho bitu (0/1) na konec zprávy podle:
+        \begin{itemize}
+            \item Sudá = sudý počet \textbf{jedniček}
+            \item Lichá = lichý počet \textbf{jedniček}
+        \end{itemize}
+    \item \textbf{Hammingova Kostka (vzdálenost)}
+        Pro nejlepší představu kostka, pro kód o velikosti 3 bity $\rightarrow$ 3-rozměrná kostka \\
+        Maximální délku binárního kódu s délkou dat 3 bity tak určíme $2^m \rightarrow m=3 \rightarrow 2^3=8$ \\
+        Souřadnice XYZ $\rightarrow$ pohyb uvnitř kostky.
+        \begin{itemize}
+            \item 000 $\rightarrow$ počáteční roh kostky
+            \item 111 $\rightarrow$ roh kostky naproti počátku
+            \item 001 $\rightarrow$ pohyb o jeden roh nahoru
+            \item XYZ $\dots$
+        \end{itemize}
+        Hammingova vzdálenost $d$ je počet rohů o které jsme se museli posunout od počátku
+        $111 \rightarrow d=3$ \\
+        Váha kódového slova je součet jedniček ve slově.\\
+        Schopnost detekce $\alpha, \beta$ násobné chyby pokud
+        \begin{itemize}
+            \item Detekce $d\underline{>}\alpha+1 \rightarrow \alpha<d$
+            \item Korekce $d\underline{>}2\times\beta+1 \rightarrow \beta<\frac{d}{2}$
+        \end{itemize}
+    \item \textbf{Maticové zabezpečení}
+    Paritní zabezpečení, pro každý řádek a sloupec v matici.
+    \begin{table}[h]
+    \centering
+        \begin{tabular}{c c c c}
+            0 & 0 & 1 & \textbf{1} \\
+            1 & 0 & 1 & \textbf{0} \\
+            1 & 1 & 1 & \textbf{1} \\
+            \textbf{0} & \textbf{1} & \textbf{1} & \textbf{0} \\
+        \end{tabular}
+        \caption{Zabezpečení matice 3x3}
+        \label{tab:matr}
+    \end{table}
 \end{itemize}
-\textbf{Hammingova Kostka (vzdálenost), Maticové zabezpečení}
-
 \section{Test:}
 \begin{itemize}
     \item Stromy + McMillan + Efektivita
