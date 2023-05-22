@@ -5,14 +5,10 @@
 \usepackage{amssymb}
 \usepackage{cancel}
 \usepackage{multicol}
-\usepackage{geometry}
+\usepackage[a4paper]{geometry}
  \geometry{
- a4paper,
- total={170mm,257mm},
- left=3mm,
- right=3mm,
+ left=10mm,
  top=10mm,
- bottom=10mm
  }
 
 \providecommand{\tabularnewline}{\\}
@@ -20,7 +16,8 @@
 \pagenumbering{gobble}
 
 \begin{document}
-\begin{multicols}{4}
+\maketitle
+\begin{multicols}{2}
 \section{Integrály}
 \begin{itemize}
     \item $\int x^{n}dx=\frac{x^{n+1}}{n+1}+C$
@@ -145,7 +142,7 @@ $A^{-1}=\frac{adj\left(A\right)}{\left|A\right|}$
     \item $\cot\left(x\right)=\frac{\cos\left(x\right)}{\sin\left(x\right)}=\frac{1}{\tan\left(x\right)}$
 \end{itemize}
 \end{multicols}
-\begin{table}[]
+\begin{table}[h]
     \centering
     \begin{tabular}{|c|c|c|}
     \hline 
