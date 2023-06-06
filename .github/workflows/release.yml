@@ -12,9 +12,9 @@ jobs:
         uses: xu-cheng/latex-action@v2
         pre_compile: "tlmgr update --self && tlmgr update --all && tlmgr install cancel"
         glob_root_file: true
-        root_file: *.tex
+        root_file: ".*.tex"
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: *.pdf
+          files: "*.pdf"
