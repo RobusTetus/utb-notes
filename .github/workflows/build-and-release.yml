@@ -10,7 +10,7 @@ jobs:
         - name: Build PDFs
           uses: xu-cheng/latex-action@v2
           with:
-            root_file: "*.tex"
+            root_file: "**/*.tex"
             glob_root_file: true
             pre_compile: "tlmgr update --self && tlmgr update --all"
         - id: compute_tag
@@ -25,4 +25,4 @@ jobs:
             name: PDF Release ${{ steps.compute_tag.outputs.next_tag }}
             tag_name: ${{ steps.compute_tag.outputs.next_tag }}
             fail_on_unmatched_files: true
-            files: "*.pdf"
+            files: "**/*.pdf"
