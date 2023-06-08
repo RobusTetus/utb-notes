@@ -1,10 +1,8 @@
 name: Release
-
 on:
 	push:
 		branches:
 			- main
-			
 jobs:
 	release:
 		runs-on: ubuntu-latest
@@ -15,13 +13,13 @@ jobs:
 					root_file: "*.tex"
 					glob_root_file: true
 					pre_compile: "tlmgr update --self && tlmgr update --all"
-			- name: Compute Next Tag
+			- name: Compute tag
 				uses: craig-day/compute-tag@v16
 				with:
 					github_token: ${{ github.token }}
 					version_scheme: continuous
 					version_type: major
-			- name: create release
+			- name: Create release
 				uses: softprops/action-gh-release@v1
 				with:
 					name: PDF Release ${{ steps.compute_tag.outputs.next_tag }}
