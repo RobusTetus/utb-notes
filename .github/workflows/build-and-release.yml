@@ -3,27 +3,28 @@ name: Release
 on:
 	push:
 		branches:
-			- master
+			- main
+			
 jobs:
 	release:
 		runs-on: ubuntu-latest
-			steps:
-				- name: Build PDFs
-					uses: xu-cheng/latex-action@v2
-					with:
-						root_file: "*.tex"
-						glob_root_file: true
-						pre_compile: "tlmgr update --self && tlmgr update --all"
-				- name: Compute Next Tag
-					uses: craig-day/compute-tag@v16
-					with:
-						github_token: ${{ github.token }}
-						version_scheme: continuous
-						version_type: major
-				- name: create release
-					uses: softprops/action-gh-release@v1
-					with:
-						name: PDF Release ${{ steps.compute_tag.outputs.next_tag }}
-						tag_name: ${{ steps.compute_tag.outputs.next_tag }}
-						fail_on_unmatched_files: true
-						files: "*.pdf"
+		steps:
+			- name: Build PDFs
+				uses: xu-cheng/latex-action@v2
+				with:
+					root_file: "*.tex"
+					glob_root_file: true
+					pre_compile: "tlmgr update --self && tlmgr update --all"
+			- name: Compute Next Tag
+				uses: craig-day/compute-tag@v16
+				with:
+					github_token: ${{ github.token }}
+					version_scheme: continuous
+					version_type: major
+			- name: create release
+				uses: softprops/action-gh-release@v1
+				with:
+					name: PDF Release ${{ steps.compute_tag.outputs.next_tag }}
+					tag_name: ${{ steps.compute_tag.outputs.next_tag }}
+					fail_on_unmatched_files: true
+					files: "*.pdf"
